@@ -1,0 +1,144 @@
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 500px;
+}
+
+/* ── Left panel ── */
+.left {
+  background: var(--color-surface);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 60px 48px;
+  position: relative;
+}
+
+.left::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 10%;
+  height: 80%;
+  width: 1px;
+  background: var(--color-border);
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: 52px;
+  font-weight: 400;
+  line-height: 1.15;
+  color: var(--color-ink);
+  margin-bottom: 18px;
+}
+
+.title em {
+  font-style: italic;
+  color: var(--color-rose);
+}
+
+.sub {
+  font-size: 14px;
+  color: var(--color-ink-muted);
+  line-height: 1.9;
+  margin-bottom: 32px;
+  max-width: 340px;
+  font-weight: 300;
+}
+
+.btns {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* ── Right panel ── */
+.right {
+  background: var(--color-surface2);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 24px;
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+  transition: background 0.25s;
+}
+
+.card:hover {
+  background: #f5e5e5;
+}
+
+.card:nth-child(1) {
+  border-right: 1px solid #eedad8;
+  border-bottom: 1px solid #eedad8;
+}
+
+.card:nth-child(2) {
+  border-bottom: 1px solid #eedad8;
+}
+
+.card:nth-child(3) {
+  border-right: 1px solid #eedad8;
+}
+
+.cardNum {
+  font-family: var(--font-display);
+  font-size: 48px;
+  color: #e8d0d0;
+  font-weight: 700;
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  line-height: 1;
+}
+
+.cardLabel {
+  font-family: var(--font-display);
+  font-size: 20px;
+  color: var(--color-ink);
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.cardSub {
+  font-size: 11px;
+  color: var(--color-rose);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+
+.cardArrow {
+  font-size: 16px;
+  color: var(--color-rose);
+  margin-top: 6px;
+  display: block;
+  transition: transform 0.2s;
+}
+
+.card:hover .cardArrow {
+  transform: translateX(4px);
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .hero {
+    grid-template-columns: 1fr;
+  }
+
+  .left::after {
+    display: none;
+  }
+
+  .title {
+    font-size: 38px;
+  }
+}

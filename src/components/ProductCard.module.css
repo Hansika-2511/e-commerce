@@ -1,0 +1,145 @@
+.card {
+  cursor: pointer;
+}
+
+.imgWrap {
+  border-radius: var(--radius-md);
+  aspect-ratio: 3 / 4;
+  position: relative;
+  margin-bottom: 12px;
+  overflow: hidden;
+}
+
+.imgLink {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: inherit;
+}
+
+.tag {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 2;
+  background: var(--color-rose);
+  color: #fff;
+  font-size: 9px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 3px 9px;
+  border-radius: 2px;
+  font-weight: 500;
+}
+
+.emoji {
+  font-size: 52px;
+  display: block;
+  position: relative;
+  z-index: 0;
+}
+
+.photo {
+  object-fit: cover;
+  z-index: 0;
+}
+
+.imgLink :global(.hover-img) {
+  object-fit: cover;
+  object-position: center top;
+}
+
+.hover {
+  position: absolute;
+  inset: 0;
+  background: rgba(199, 123, 123, 0.08);
+  opacity: 0;
+  transition: opacity 0.2s;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 16px;
+}
+
+.imgWrap:hover .hover {
+  opacity: 1;
+}
+
+.enquireBtn {
+  background: #fff;
+  color: var(--color-ink);
+  border: none;
+  padding: 9px 18px;
+  font-family: var(--font-body);
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-weight: 500;
+  border-radius: var(--radius-sm);
+  transition: background 0.2s;
+}
+
+.enquireBtn:hover {
+  background: var(--color-rose);
+  color: #fff;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.category {
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--color-rose);
+  font-weight: 500;
+}
+
+.name {
+  font-family: var(--font-display);
+  font-size: 15px;
+  color: var(--color-ink);
+  line-height: 1.3;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.name:hover {
+  color: var(--color-rose);
+}
+
+.price {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  margin-top: 2px;
+}
+
+.wish {
+  background: none;
+  border: none;
+  font-size: 12px;
+  color: var(--color-ink-faint);
+  cursor: pointer;
+  text-align: left;
+  padding: 0;
+  margin-top: 2px;
+  transition: color 0.2s;
+  font-family: var(--font-body);
+}
+
+.wish:hover {
+  color: var(--color-rose);
+}
+
+.wished {
+  color: var(--color-rose);
+}

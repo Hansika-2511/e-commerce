@@ -1,0 +1,23 @@
+.tape {
+  overflow: hidden;
+  white-space: nowrap;
+  background: var(--color-surface3);
+  padding: 11px 0;
+  border-top: 1px solid #f0dada;
+  border-bottom: 1px solid #f0dada;
+}
+
+.inner {
+  display: inline-block;
+  animation: tape 22s linear infinite;
+  font-size: 11px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--color-rose-text);
+  font-weight: 400;
+}
+
+@keyframes tape {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}

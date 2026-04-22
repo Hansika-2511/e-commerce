@@ -1,0 +1,78 @@
+// SweetNight — products, cart, wishlist, orders (SQLite dev; use PostgreSQL in production)
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Product {
+  id             String   @id @default(cuid())
+  slug           String   @unique
+  name           String
+  category       String
+  tag            String?
+  /// Whole INR (e.g. 1499 = ₹1,499)
+  priceInr       Int
+  currency       String   @default("INR")
+  emoji          String?
+  bgColor        String?
+  imageUrl       String?
+  videoUrl       String?
+  description    String?
+  isTrending     Boolean  @default(false)
+  trendingRank   Int      @default(0)
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  cartItems      CartItem[]
+  wishlistItems  WishlistItem[]
+  orderLines     OrderLine[]
+}
+
+model CartItem {
+  id        String   @id @default(cuid())
+  sessionId String
+  productId String
+  product   Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  quantity  Int      @default(1)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([sessionId, productId])
+  @@index([sessionId])
+}
+
+model WishlistItem {
+  id        String   @id @default(cuid())
+  sessionId String
+  productId String
+  product   Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+
+  @@unique([sessionId, productId])
+  @@index([sessionId])
+}
+
+model Order {
+  id        String      @id @default(cuid())
+  sessionId String?
+  email     String?
+  status    String      @default("placed")
+  createdAt DateTime    @default(now())
+  lines     OrderLine[]
+}
+
+model OrderLine {
+  id         String  @id @default(cuid())
+  orderId    String
+  order      Order   @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  productId  String
+  product    Product @relation(fields: [productId], references: [id])
+  quantity   Int
+  /// Snapshot price in INR at purchase time
+  priceInr   Int
+}

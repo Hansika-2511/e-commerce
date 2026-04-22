@@ -1,0 +1,178 @@
+.section {
+  padding: 60px var(--px);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 12px;
+}
+
+.smallGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.card {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  text-decoration: none;
+  min-height: 200px;
+}
+
+.cardLarge:hover .cardImg {
+  transform: scale(1.04);
+}
+
+.card:not(.cardLarge):hover .cardBg {
+  transform: scale(1.04);
+}
+
+.card:not(.cardLarge):hover .hoverImgWrap :global(.hover-img) {
+  transform: scale(1.04);
+}
+
+.hoverImgWrap {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.hoverImgWrap :global(.hover-img) {
+  object-fit: cover;
+  object-position: center top;
+  transition: transform 0.5s ease;
+  transform-origin: top center;
+}
+
+.card:hover .cardOverlay {
+  background: rgba(0, 0, 0, 0.45);
+}
+
+.cardLarge {
+  min-height: 420px;
+}
+
+.womenCollage {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  z-index: 0;
+}
+
+.collageCell {
+  position: relative;
+  min-height: 100%;
+  overflow: hidden;
+}
+
+.cardBg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  transition: transform 0.5s ease;
+  transform-origin: center center;
+}
+
+.cardBgMen {
+  background: linear-gradient(145deg, #1a2433 0%, #2d3d52 45%, #243040 100%);
+}
+
+.cardBgKids {
+  background: linear-gradient(145deg, #3d4f5c 0%, #5a6f7e 42%, #4a5f6e 100%);
+}
+
+.cardBgBoys {
+  background: linear-gradient(145deg, #1e2d42 0%, #2f4560 50%, #253548 100%);
+}
+
+.cardBgGirls {
+  background: linear-gradient(145deg, #4a3542 0%, #6b4a5a 45%, #553848 100%);
+}
+
+/* Anchor to top so faces aren’t cropped; zoom from top so hover doesn’t shave heads */
+.cardImg {
+  object-fit: cover;
+  object-position: top center;
+  transform-origin: top center;
+  transition: transform 0.5s ease;
+  z-index: 0;
+}
+
+.cardOverlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.28);
+  z-index: 1;
+  transition: background 0.3s ease;
+}
+
+.cardContent {
+  position: relative;
+  z-index: 2;
+  padding: 20px;
+}
+
+.cardLarge .cardContent {
+  padding: 28px;
+}
+
+.tag {
+  font-size: 9px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: #e8c8c8;
+  font-weight: 500;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.name {
+  font-family: var(--font-display);
+  font-size: 28px;
+  color: #ffffff;
+  font-weight: 400;
+  line-height: 1.2;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.3);
+}
+
+.nameSm {
+  font-size: 20px;
+}
+
+.link {
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.7);
+  margin-top: 8px;
+  display: block;
+  transition: color 0.2s;
+}
+
+.card:hover .link {
+  color: #ffffff;
+}
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  .cardLarge {
+    min-height: 280px;
+  }
+}
+
+@media (max-width: 480px) {
+  .smallGrid {
+    grid-template-columns: 1fr;
+  }
+}

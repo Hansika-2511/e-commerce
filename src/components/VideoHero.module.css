@@ -1,0 +1,64 @@
+.hero {
+  position: relative;
+  min-height: 560px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  margin-top: 0;
+}
+.video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* Slightly in from the far right (100%) so the top-right mark sits a touch higher in frame */
+  object-position: 93% 0%;
+  z-index: 0;
+  pointer-events: none;
+}
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(20, 10, 10, 0.52);
+  z-index: 1;
+}
+.content {
+  position: relative;
+  z-index: 2;
+  padding: 60px var(--px);
+  max-width: 560px;
+}
+.eyebrow {
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #e8a0a0;
+  font-weight: 500;
+  display: block;
+  margin-bottom: 14px;
+}
+.title {
+  font-family: var(--font-display);
+  font-size: 58px;
+  font-weight: 400;
+  color: #fff;
+  line-height: 1.15;
+  margin-bottom: 18px;
+}
+.title em {
+  font-style: italic;
+  color: #e8a0a0;
+}
+.sub {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 1.9;
+  margin-bottom: 32px;
+  font-weight: 300;
+}
+.btns {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}

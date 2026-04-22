@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import styles from './Navbar.module.css';
-
+   
 const NAV_LINKS = [
   { label: 'Women', href: '/women', sub: [
       { label: 'Payjama Set', href: '/women/payjama-set' },

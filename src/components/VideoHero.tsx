@@ -50,7 +50,7 @@ export default function VideoHero() {
         </p>
         <div className={styles.btns}>
           <Link href="/products" className="btn-fill">Explore Now</Link>
-          <Link href="/about" className="btn-outline">View Catalogue</Link>
+          <Link href="/about" className="btn-fill">View Catalogue</Link>
         </div>
       </div>
     </section>

@@ -7,6 +7,15 @@ import styles from './ProductCard.module.css';
 import type { ShopProduct } from '@/types/product';
 import { formatInr } from '@/lib/format-inr';
 
+const FALLBACK_IMAGES_BY_SLUG: Record<string, string> = {
+  'sunshine-petal': 'https://sweetnight.in/storage/files/2/SN%20GIRLS6782.jpg',
+  'blossom-kaftan': 'https://sweetnight.in/storage/files/2/15500%20A.jpg',
+  'marvel-heroes': 'https://sweetnight.in/storage/files/2/SweetNight/mens/5609%20A.jpg',
+  'classic-stripe': 'https://sweetnight.in/storage/files/2/SweetNight/mens/5619%20C.jpg',
+  'disney-princess': 'https://sweetnight.in/storage/files/2/SweetNight/mens/5624%20A.jpg',
+  'couple-set': 'https://sweetnight.in/storage/files/2/5390%20A.jpg',
+};
+
 export default function ProductCard({ product }: { product: ShopProduct }) {
   const [wished, setWished] = useState(false);
   const [cartBusy, setCartBusy] = useState(false);
@@ -65,14 +74,16 @@ export default function ProductCard({ product }: { product: ShopProduct }) {
     }
   }, [product.id]);
 
+  const displayImageUrl = product.imageUrl ?? FALLBACK_IMAGES_BY_SLUG[product.slug] ?? null;
+
   return (
     <div className={styles.card}>
       <div className={styles.imgWrap} style={{ background: product.bgColor }}>
         <Link href={product.href} className={styles.imgLink}>
           {product.tag && <span className={styles.tag}>{product.tag}</span>}
-          {product.imageUrl ? (
+          {displayImageUrl ? (
             <Image
-              src={product.imageUrl}
+              src={displayImageUrl}
               alt={product.name}
               fill
               className={`${styles.photo} hover-img`}
